@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mystery Game</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="./p5.play.js"></script>
+    
+    <style>
+        canvas {
+            display: block;
+        }
+        #game-container {
+            text-align: center;
+        }
+        h1 {
+            color: black;
+        }
+        #image-container {
+            display: flex;
+            justify-content: center;
+        }
+        .round-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 40%;
+            overflow: hidden;
+            margin: 0 10px;
+            position: relative;
+        }
+        .round-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .round-image:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border: 5px solid black;
+            box-sizing: border-box;
+            transition: border-width 0.3s;
+        }
+        .round-image:hover:before {
+            border-width: 10px;
+        }
+        
+        .description-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .round-image:hover .description-box {
+            opacity: 1;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>  
+    <div id="game-container"><p>
+       
+        <h1>Welcome Spy! Solve the Mystery</h1>
+        <div id="image-container">
+            <div class="round-image" id="driver-container">
+                <img src="Driver .png" alt="Driver">
+                <p class="description-box">Driver friend of Luka</p>
+            </div>
+            <div class="round-image" id="Cook-container">
+                <img src="Cook.png" alt="Cook">
+                <p class="description-box">Cook of the house</p>
+            </div>
+            <div class="round-image" id="Servant-container">
+                <img src="Servant1.png" alt="Servant">
+                <p class="description-box">Servant of the house</p>
+            </div>
+            <div class="round-image" id="drill-container">
+                <img src="drill1.png" alt="Drill">
+                <p class="description-box">Carpenter of the house</p>
+            </div>
+        </div>
+        <button id="start-button">Start</button>
+    </div>
+    
+    <script src="sketch1.js"></script>
+</body>
+</html>
